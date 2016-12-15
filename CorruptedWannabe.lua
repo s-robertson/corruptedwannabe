@@ -1,3 +1,5 @@
+CorruptedWannabe {};
+
 SLASH_CORRUPTEDWANNABE1, SLASH_CORRUPTEDWANNABE2 = '/corruptedwannabe', '/cwb';
 
 function SlashCmdList.CORRUPTEDWANNABE(msg, editbox)

@@ -4,6 +4,5 @@
 ## Version: 0.1
 ##SavedVariablesPerCharacter: CorruptedWannabeSettings
 
-globals.lua
-sounds.lua
-main.lua
+CorruptedWannabe.lua
+Sounds.lua

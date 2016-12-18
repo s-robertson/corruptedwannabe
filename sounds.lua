@@ -59,13 +59,19 @@ local ashbringerSounds = {
 };
 
 SoundService.playNextSound = function()
-    local ShouldPlaySound = math.random(100 / CorruptedWannabeSettings.soundProbabilityPercent);
-    local nextSound = CorruptedWannabeSettings.nextSound;
-    
-    if (ShouldPlaySound == 1) then
-        PlaySoundFile(Ashbringer_Sounds[nextSound].file);
-        print("|cFFF8B0DEAn Unknown Voice whispers:", Ashbringer_Sounds[nextSound].text);
-        incrementSound();
+    if (IsEquippedItem(120978)) then
+        local ShouldPlaySound = math.random(100 / CorruptedWannabeSettings.soundProbabilityPercent);
+        local nextSound = CorruptedWannabeSettings.nextSound;
+        
+        if (ShouldPlaySound == 1) then
+            PlaySoundFile(ashbringerSounds[nextSound].file);
+
+            if (CorruptedWannabeSettings.showWhispers == true) then
+                print("|cFFF8B0DEAn Unknown Voice whispers:", ashbringerSounds[nextSound].text);
+            end
+
+            incrementSound();
+        end
     end
 end
 

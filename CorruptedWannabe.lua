@@ -1,9 +1,32 @@
-CorruptedWannabe {};
+CorruptedWannabe = {};
 
 SLASH_CORRUPTEDWANNABE1, SLASH_CORRUPTEDWANNABE2 = '/corruptedwannabe', '/cwb';
 
 function SlashCmdList.CORRUPTEDWANNABE(msg, editbox)
     local command, rest = msg:match("^(%S*)%s*(.-)$");
+
+    if (command == "percent") then
+        rest = tonumber(rest);
+
+        if (rest ~= nil and rest > 0 and rest <= 100) then
+            CorruptedWannabeSettings.soundProbabilityPercent = rest;
+            print("Corrupted Wannabe: Percent chance set to " .. rest .. "%");
+        else
+            print("|cFFFF0000CorruptedWannabe: Invalid option");
+        end
+    elseif (command == "whispers") then
+        if (rest == "on") then
+            print ("Corrupted Wannabe: whispers enabled");
+            CorruptedWannabeSettings.showWhispers = true;
+        elseif (rest == "off") then
+            print ("Corrupted Wannabe: whispers disabled");
+            CorruptedWannabeSettings.showWhispers = false;
+        else
+            print("|cFFFF0000CorruptedWannabe: Invalid option");
+        end
+    else
+        print("|cFFFF0000CorruptedWannabe: Invalid command");
+    end
 end
 
 local frame = CreateFrame("FRAME");
